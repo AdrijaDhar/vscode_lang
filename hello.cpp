@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int minOp(string str)
+{
+  string str1(str.length(), '0');
+  int count = 0;
+  if (str1.compare(str) == 0)
+  {
+    cout << 0 << endl;
+  }
+  else
+  {
+    for (; str1.compare(str) != 0; count++)
+    {
+      for (int i = 0; i < str.length(); i++)
+      {
+        if (i > 0)
+        {
+          if (str[i] == '1' && str[i - 1] != '1')
+          {
+            str[i] = '0';
+          }
+        }
+        else
+        {
+          str[i] = '0';
+        }
+      }
+    }
+  }
+  return count;
+}
+
+void solve()
+{
+
+  string str;
+  cin >> str;
+
+  cout << minOp(str) << endl;
+}
+
+int main()
+{
+
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    solve();
+  }
+  return 0;
+}
